@@ -53,7 +53,7 @@ export default async function Home() {
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
               {sectionProducts.map((p) => {
-                const secName = typeof p.sectionId === "object" ? p.sectionId?.name || "" : "";
+                const secName = typeof p.sectionId === "object" ? (p.sectionId as any)?.name || "" : "";
                 const tags = [secName, p.productType, "fashion", "clothing"].map(s => String(s || "").trim().split(" ")[0]).filter(Boolean).join(",");
                 const keyword = encodeURIComponent(tags.toLowerCase());
                 return (

@@ -9,6 +9,7 @@ type ProductView = {
   name: string;
   productCode: string;
   productType: string;
+  sectionId?: { _id: string; name: string } | string;
   sizes?: string[];
   discountedPrice: number;
   mrp: number;
@@ -33,7 +34,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
       <p className="mb-5 text-sm text-[#1A1A2E]/70">Rich textile catalog with product ID, type, sizes, pricing, images and media-ready fields.</p>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {filtered.map((p) => {
-          const secName = typeof p.sectionId === "object" ? p.sectionId?.name || "" : "";
+          const secName = typeof p.sectionId === "object" ? (p.sectionId as any)?.name || "" : "";
           const tags = [secName, p.productType, "fashion", "clothing"].map(s => String(s || "").trim().split(" ")[0]).filter(Boolean).join(",");
           const keyword = encodeURIComponent(tags.toLowerCase());
           return (
