@@ -1,0 +1,1 @@
+export default function ProfilePage(){return <main className="mx-auto max-w-4xl p-4"><div className="rounded-xl bg-white p-4">Profile page scaffold with editable details and order summary.</div></main>}

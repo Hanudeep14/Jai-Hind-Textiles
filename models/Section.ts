@@ -1,0 +1,1 @@
+import { Schema, model, models } from "mongoose"; const sectionSchema = new Schema({name:String,slug:{type:String,unique:true},visible:{type:Boolean,default:true},order:{type:Number,default:0}},{timestamps:true}); export const Section = models.Section || model("Section", sectionSchema);

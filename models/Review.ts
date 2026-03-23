@@ -1,0 +1,1 @@
+import { Schema, model, models } from "mongoose"; const reviewSchema = new Schema({productId:{type:Schema.Types.ObjectId,ref:"Product"},userName:String,rating:Number,comment:String,approved:{type:Boolean,default:false}},{timestamps:true}); export const Review = models.Review || model("Review", reviewSchema);

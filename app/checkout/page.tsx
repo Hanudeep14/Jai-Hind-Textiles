@@ -1,0 +1,1 @@
+export default function CheckoutPage(){return <main className="mx-auto max-w-4xl p-4"><div className="rounded-xl bg-white p-4">Checkout page scaffold with Home Delivery / Shop Pickup placeholders.</div></main>}

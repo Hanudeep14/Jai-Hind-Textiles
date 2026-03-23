@@ -1,0 +1,1 @@
+export default function L({children}:{children:React.ReactNode}){return <div className="min-h-screen"><header className="border-b bg-white"><div className="mx-auto max-w-6xl p-4 font-semibold">Jaihind Textiles</div></header><main className="mx-auto max-w-6xl p-4">{children}</main></div>}

@@ -1,0 +1,1 @@
+import { NextResponse } from "next/server"; import { connectDb } from "@/lib/db"; import { Order } from "@/models/Order"; import { currentAdmin } from "@/lib/auth"; export async function GET(){if(!(await currentAdmin())) return NextResponse.json({error:"Unauthorized"},{status:401}); await connectDb(); return NextResponse.json(await Order.find().sort({createdAt:-1}).lean());}

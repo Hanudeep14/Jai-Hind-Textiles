@@ -1,26 +1,66 @@
 @import "tailwindcss";
+:root { --saffron: #ff6b00; --cream: #fff8f0; --charcoal: #1a1a2e; }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html { scroll-behavior: smooth; }
+body { 
+  font-family: var(--font-inter), sans-serif; 
+  background: var(--cream); 
+  color: var(--charcoal); 
+  -webkit-font-smoothing: antialiased; 
+}
+h1,h2,h3,h4,h5,h6 { 
+  font-family: var(--font-poppins), sans-serif; 
+  letter-spacing: -0.02em; 
+}
+::selection { background-color: rgba(255, 107, 0, 0.2); color: #ff6b00; }
+
+.hero-pattern { 
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(255, 107, 0, 0.15), transparent 40%), 
+    radial-gradient(circle at 85% 30%, rgba(26, 26, 46, 0.08), transparent 35%), 
+    repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05), rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 8px); 
+  box-shadow: inset 0 0 100px rgba(255, 248, 240, 0.5); 
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.product-card { 
+  transition: all 250ms cubic-bezier(0.25, 0.8, 0.25, 1); 
+  border: 1px solid rgba(26, 26, 46, 0.05); 
+}
+.product-card:hover { 
+  transform: translateY(-4px) scale(1.01); 
+  box-shadow: 0 15px 35px rgba(26, 26, 46, 0.08), 0 5px 15px rgba(255, 107, 0, 0.05); 
+  border-color: rgba(255, 107, 0, 0.2); 
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes blast-expand {
+  0% { transform: scale(0); opacity: 1; }
+  50% { transform: scale(50); opacity: 0.8; }
+  100% { transform: scale(150); opacity: 0; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes splash-leave {
+  0% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes splash-logo {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.blast-ring {
+  width: 40px;
+  height: 40px;
+  animation: blast-expand 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.blast-ring-2 {
+  width: 60px;
+  height: 60px;
+  animation: blast-expand 1.4s cubic-bezier(0.19, 1, 0.22, 1) 0.1s forwards;
+}
+
+.splash-overlay {
+  animation: splash-leave 0.4s ease forwards 1.4s;
 }

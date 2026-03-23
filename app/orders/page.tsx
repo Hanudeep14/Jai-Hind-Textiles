@@ -1,0 +1,1 @@
+export default function OrdersPage(){return <main className="mx-auto max-w-4xl p-4"><div className="rounded-xl bg-white p-4">Order history page scaffold. Recent placed orders appear here.</div></main>}
